@@ -6,8 +6,8 @@ public class AudioManager : MonoBehaviour
 {
     public static bool ChooseSong;
     public AudioClip[] list;
+    public AudioSource PreLoad;
     public AudioSource audioSource;
-    public AudioClip Snap;
     public static int Bpm;
 
     // Start is called before the first frame update
@@ -18,12 +18,33 @@ public class AudioManager : MonoBehaviour
         PlayThisClip();
 
     }
+    private void Start()
+    {
+        Invoke("playSong", 3f);
+       
+    }
 
     public void PlayThisClip()
     {
         foreach (AudioClip clip in list)
         {
-            if (clip.name == "MenuTheme")
+            if (clip.name == "Synthwave Theme")
+            {
+                ChooseSong = true;
+               PreLoad.PlayOneShot(clip);
+                Bpm = 120;
+
+
+            }
+
+        }
+    }
+
+    void playSong()
+    {
+        foreach (AudioClip clip in list)
+        {
+            if (clip.name == "Synthwave Theme")
             {
                 ChooseSong = true;
                 audioSource.PlayOneShot(clip);
@@ -36,18 +57,6 @@ public class AudioManager : MonoBehaviour
     }
 
 
-   private void Update()
-    {
-        for (int i = 0; i < 256; i++)
-        {
-            if (SpectrumData.spectrum[i] >= 20)
-            {
-                audioSource.PlayOneShot(Snap);
-                break;
-            }
-        }
 
-        }
-    
 }
 
