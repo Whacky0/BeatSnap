@@ -30,11 +30,11 @@ public class InstantiateObstacles : MonoBehaviour
 
     void instantiateObstacles()
     {
-        if (SpectrumData._frequBandPreLoad[6]>=2) { 
+        if (SpectrumData._frequBandPreLoad[6]>=22) { 
         var streets = GameObject.FindGameObjectsWithTag("Street");
-        int rand= Random.Range(0, 2);
-        Instantiate(obstacles, new Vector3(streets[rand].transform.position.x+0.5f, streets[rand].transform.position.y + 5, streets[rand].transform.position.z), Quaternion.identity);
-        delay = 0.25f;
+         int  rand = Random.Range(0, 2);
+        Instantiate(obstacles, new Vector3(streets[rand].transform.position.x+0.5f, streets[rand].transform.position.y + 5, 5), Quaternion.identity);
+            delay = 0.5f;
 
         }
     }

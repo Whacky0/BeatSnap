@@ -14,13 +14,14 @@ public class AudioManager : MonoBehaviour
 
     private void Awake()
     {
+        
         list = Resources.LoadAll<AudioClip>("AudioClips");
         PlayThisClip();
 
     }
     private void Start()
     {
-        Invoke("playSong", 3f);
+        Invoke("playSong", 1.5f);
        
     }
 
@@ -28,12 +29,11 @@ public class AudioManager : MonoBehaviour
     {
         foreach (AudioClip clip in list)
         {
-            if (clip.name == "Synthwave Theme")
+            if (clip.name == "Adults")
             {
                 ChooseSong = true;
                PreLoad.PlayOneShot(clip);
-                Bpm = 120;
-
+                Bpm = 136;
 
             }
 
@@ -44,11 +44,11 @@ public class AudioManager : MonoBehaviour
     {
         foreach (AudioClip clip in list)
         {
-            if (clip.name == "Synthwave Theme")
+            if (clip.name == "Adults")
             {
                 ChooseSong = true;
                 audioSource.PlayOneShot(clip);
-                Bpm = 120;
+                Bpm = 136;
 
 
             }

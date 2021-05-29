@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Street
   - Obstacles
+  - Visual
   layers:
   - Default
   - TransparentFX

@@ -3,13 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 public class SpectrumData : MonoBehaviour
 {
-    public float[] spectrum = new float[512];
+    public static float[] spectrum = new float[512];
     public  float[] spectrumPreload = new float[512];
     public static float[] _frequBand = new float[8];
     public static float[] _frequBandPreLoad = new float[8];
-    public  float[] test = new float[8];
-
-
 
     public AudioSource _audioSource;
     public  AudioSource preload;
@@ -20,19 +17,27 @@ public class SpectrumData : MonoBehaviour
         frequenciBand();
         frequenciBandPreload();
 
-        test = _frequBand;
     }
+
+
     void spectrumData()
     {
-        _audioSource.GetSpectrumData(spectrum, 0, FFTWindow.Blackman);
-        preload.GetSpectrumData(spectrumPreload, 0, FFTWindow.Blackman);
+        _audioSource.GetSpectrumData(spectrum, 0, FFTWindow.BlackmanHarris);
+        preload.GetSpectrumData(spectrumPreload, 0, FFTWindow.BlackmanHarris);
 
-        spectrum[0] = spectrum[0] * 100;
-        spectrumPreload[0] = spectrum[0] * 100;
+        for (int i = 0; i < spectrum.Length; i++)
+        {
+            spectrum[i] = spectrum[i] * 10;
+            spectrumPreload[i] = spectrum[i] * 10;
+        }
+
 
 
 
     }
+
+
+
     void frequenciBand()
     {
         int count = 0;
@@ -73,4 +78,7 @@ public class SpectrumData : MonoBehaviour
             _frequBandPreLoad[i] = average * 10;
         }
     }
+
+   
+
 }

@@ -8,7 +8,8 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
-        player.transform.position = new Vector3(-0.05f, -3.84f, 8.852967f);
+        var street = GameObject.Find("Streets");
+        player.transform.position = new Vector3(street.transform.position.x - 0.73f, -3.84f, 5); 
     }
     // Start is called before the first frame update
     void Start()

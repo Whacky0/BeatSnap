@@ -17,8 +17,8 @@ public class BackgroundInstantiate : MonoBehaviour
         var BotomRightEdge = new Vector3(Screen.width / Screen.width / 4, Screen.height / Screen.height / Screen.height);
 
         //Streets
-        street.transform.position = new Vector3(BotomLeftEdge.x - 0.75f, BotomLeftEdge.y, 10);
-        Instantiate(street, new Vector3(BotomRightEdge.x + 0.75f, BotomRightEdge.y, 10), Quaternion.identity);
+        street.transform.position = new Vector3(BotomLeftEdge.x - 0.75f, BotomLeftEdge.y, 5);
+        Instantiate(street, new Vector3(BotomRightEdge.x + 0.75f, BotomRightEdge.y, 5), Quaternion.identity);
 
     }
     void Update()
@@ -38,17 +38,19 @@ public class BackgroundInstantiate : MonoBehaviour
     void skybox()
     {
 
-     if (SpectrumData._frequBand[1] >= 1 && !cambiocolor)
+     if (SpectrumData._frequBand[6] >= 22 && !cambiocolor)
             {
             cambiocolor = true;
             RenderSettings.skybox.SetColor("_Tint", new Color(0.7f, 0.5f, 0.5f));
-            delay = 0.4f;
+
+            delay = BPM.secondsPerBeat;
+
         }
-        else if(SpectrumData._frequBand[1] >= 1 && cambiocolor)
+        else if(SpectrumData._frequBand[6] >= 22 && cambiocolor)
         {
             cambiocolor = false;
             RenderSettings.skybox.SetColor("_Tint", new Color(0.2f, 0.5f, 0.5f));
-            delay = 0.4f;
+            delay = BPM.secondsPerBeat;
 
 
         }
