@@ -526,6 +526,7 @@ MonoBehaviour:
   list: []
   PreLoad: {fileID: 837047879}
   audioSource: {fileID: 531621280}
+  snap: {fileID: 8300000, guid: a61af10b1a0b0d74d97f49b6bae5a354, type: 3}
 --- !u!114 &531621283
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1568,6 +1569,15 @@ MonoBehaviour:
   - 0
   - 0
   - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  Test:
   - 0
   - 0
   - 0

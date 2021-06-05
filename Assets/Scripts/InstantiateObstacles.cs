@@ -8,34 +8,36 @@ public class InstantiateObstacles : MonoBehaviour
     float delay = 0;
 
 
-    private void Update()
-    {
-        moveObjects();
+     private void Update()
+     {
+         moveObjects();
 
 
-        if (delay <= 0)
-        {
+         if (delay <= 0)
+         {
 
-            instantiateObstacles();
-            return;
-        }
-        else
-        {
-            delay -= Time.deltaTime;
+             instantiateObstacles();
+             return;
+         }
+         else
+         {
+             delay -= Time.deltaTime;
 
 
-        }
+         }
 
-    }
+     }
+    
 
+  
     void instantiateObstacles()
     {
-        if (SpectrumData._frequBandPreLoad[6]>=22) { 
-        var streets = GameObject.FindGameObjectsWithTag("Street");
-         int  rand = Random.Range(0, 2);
-        Instantiate(obstacles, new Vector3(streets[rand].transform.position.x+0.5f, streets[rand].transform.position.y + 5, 5), Quaternion.identity);
-            delay = 0.5f;
 
+        if (SpectrumData._frequBandPreLoad[5]> SpectrumData.PreAudioSpec.Pop()+3) { 
+            var streets = GameObject.FindGameObjectsWithTag("Street");
+            int  rand = Random.Range(0, 2);
+            Instantiate(obstacles, new Vector3(streets[rand].transform.position.x+0.5f, streets[rand].transform.position.y + 5, 5), Quaternion.identity);
+            delay = BPM.secondsPerBeat/2;
         }
     }
 

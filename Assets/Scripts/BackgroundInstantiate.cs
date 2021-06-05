@@ -38,7 +38,7 @@ public class BackgroundInstantiate : MonoBehaviour
     void skybox()
     {
 
-     if (SpectrumData._frequBand[6] >= 22 && !cambiocolor)
+     if (SpectrumData._frequBand[6] >= 20 && !cambiocolor)
             {
             cambiocolor = true;
             RenderSettings.skybox.SetColor("_Tint", new Color(0.7f, 0.5f, 0.5f));
@@ -46,7 +46,7 @@ public class BackgroundInstantiate : MonoBehaviour
             delay = BPM.secondsPerBeat;
 
         }
-        else if(SpectrumData._frequBand[6] >= 22 && cambiocolor)
+        else if(SpectrumData._frequBand[6] >= 20 && cambiocolor)
         {
             cambiocolor = false;
             RenderSettings.skybox.SetColor("_Tint", new Color(0.2f, 0.5f, 0.5f));

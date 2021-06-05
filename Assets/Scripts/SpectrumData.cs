@@ -7,18 +7,29 @@ public class SpectrumData : MonoBehaviour
     public  float[] spectrumPreload = new float[512];
     public static float[] _frequBand = new float[8];
     public static float[] _frequBandPreLoad = new float[8];
-
+    public  float[] Test = new float[8];
     public AudioSource _audioSource;
     public  AudioSource preload;
+    public static Stack<float> PreAudioSpec = new Stack <float>();
+    public static Stack AudioSpec = new Stack();
 
+    private void Start()
+    {
+        PreAudioSpec.Push(0);
+    }
     private void Update()
     {
         spectrumData();
         frequenciBand();
         frequenciBandPreload();
-
+        Test = _frequBand;
     }
 
+    private void FixedUpdate()
+    {
+        loadStack();
+
+    }
 
     void spectrumData()
     {
@@ -75,10 +86,16 @@ public class SpectrumData : MonoBehaviour
                 count++;
             }
             average /= count;
-            _frequBandPreLoad[i] = average * 10;
+            _frequBandPreLoad[i] = average;
         }
     }
 
-   
+    public static void loadStack()
+    {
+
+            float frequencia = _frequBandPreLoad[5];
+            PreAudioSpec.Push(frequencia);
+            Debug.Log(frequencia);
+    }
 
 }

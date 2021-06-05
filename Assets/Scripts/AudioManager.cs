@@ -9,7 +9,7 @@ public class AudioManager : MonoBehaviour
     public AudioSource PreLoad;
     public AudioSource audioSource;
     public static int Bpm;
-
+    public AudioClip snap;
     // Start is called before the first frame update
 
     private void Awake()
@@ -24,12 +24,22 @@ public class AudioManager : MonoBehaviour
         Invoke("playSong", 1.5f);
        
     }
-
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            audioSource.PlayOneShot(snap);  
+        }
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            audioSource.PlayOneShot(snap);
+        }
+    }
     public void PlayThisClip()
     {
         foreach (AudioClip clip in list)
         {
-            if (clip.name == "Adults")
+            if (clip.name == "hexxagon")
             {
                 ChooseSong = true;
                PreLoad.PlayOneShot(clip);
@@ -44,7 +54,7 @@ public class AudioManager : MonoBehaviour
     {
         foreach (AudioClip clip in list)
         {
-            if (clip.name == "Adults")
+            if (clip.name == "hexxagon")
             {
                 ChooseSong = true;
                 audioSource.PlayOneShot(clip);
