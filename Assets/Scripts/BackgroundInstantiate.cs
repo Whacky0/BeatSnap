@@ -8,6 +8,7 @@ public class BackgroundInstantiate : MonoBehaviour
     bool cambiocolor = false;
     public AudioSource audioSourceGame;
     float delay = 0;
+    /*
     private void Awake()
     {
         RenderSettings.skybox.SetColor("_Tint", new Color(0.2f, 0.5f, 0.5f));
@@ -15,12 +16,14 @@ public class BackgroundInstantiate : MonoBehaviour
         var BotomLeftEdge = new Vector3(Screen.width / Screen.width / 10, Screen.height / Screen.height / Screen.height);
         //right
         var BotomRightEdge = new Vector3(Screen.width / Screen.width / 4, Screen.height / Screen.height / Screen.height);
-
+        /*
         //Streets
         street.transform.position = new Vector3(BotomLeftEdge.x - 0.75f, BotomLeftEdge.y, 5);
         Instantiate(street, new Vector3(BotomRightEdge.x + 0.75f, BotomRightEdge.y, 5), Quaternion.identity);
-
+        
     }
+    */
+
     void Update()
     {
         if (delay <=0) {

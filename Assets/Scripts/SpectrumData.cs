@@ -95,7 +95,6 @@ public class SpectrumData : MonoBehaviour
 
             float frequencia = _frequBandPreLoad[5];
             PreAudioSpec.Push(frequencia);
-            Debug.Log(frequencia);
     }
 
 }
