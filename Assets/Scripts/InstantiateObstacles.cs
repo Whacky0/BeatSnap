@@ -7,7 +7,8 @@ public class InstantiateObstacles : MonoBehaviour
     public GameObject obstacles;
     public SpriteRenderer sprite;
     float delay = 0;
-
+    public static int posO;
+    public static bool insO;
 
      private void Update()
      {
@@ -22,10 +23,12 @@ public class InstantiateObstacles : MonoBehaviour
          }
          else
          {
+            
              delay -= Time.deltaTime;
 
 
          }
+
 
      }
     
@@ -46,17 +49,21 @@ public class InstantiateObstacles : MonoBehaviour
         q[2] = Quaternion.Euler(0, 0, 180);
         q[3] = Quaternion.identity;
 
-
-        if (SpectrumData._frequBandPreLoad[6]> SpectrumData.PreAudioSpec.Pop()+30) {
+        posO = rand;
+        float freqD = SpectrumData.PreAudioDrum.Pop();
+        float freqB = SpectrumData.PreAudioBass.Pop();
+            if (SpectrumData._frequBandPreLoad[6] > freqD*5 && freqD!=0)
+            {
+            insO = true;    
+             Instantiate(obstacles, ins[rand], q[rand]);
+             delay = BPM.secondsPerBeat / 2;
+            }
+            else if (SpectrumData._frequBandPreLoad[1] > 10 && freqB != 0)
+            {
+            insO = true;
             Instantiate(obstacles, ins[rand], q[rand]);
-            delay = BPM.secondsPerBeat/2;
-        }
-        else if(SpectrumData._frequBandPreLoad[1] > 30)
-        {
-
-            Instantiate(obstacles, ins[rand], q[rand]);
-            delay = BPM.secondsPerBeat ;
-        }
+                delay = BPM.secondsPerBeat;
+            }
         
 
     }
@@ -95,7 +102,7 @@ public class InstantiateObstacles : MonoBehaviour
            var sp = o.GetComponent<SpriteRenderer>();
         if (BackgroundInstantiate.cambiocolor)
         {
-            sp.color = new Color(0.2f, 0.5f, 0.5f);
+            sp.color = new Color(0.2f, 0.2f, 0.5f);
         }
         else
         {
@@ -104,4 +111,6 @@ public class InstantiateObstacles : MonoBehaviour
         }
         }
     }
+
+    
 }

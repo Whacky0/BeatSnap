@@ -36,25 +36,21 @@ public class Player : MonoBehaviour
             //swipe upwards
             if (currentSwipe.y > 0 && currentSwipe.x > -0.5f && currentSwipe.x < 0.5f)
         {
-                Debug.Log("up swipe");
                 pos = 1;
             }
             //swipe down
             if (currentSwipe.y < 0 && currentSwipe.x > -0.5f && currentSwipe.x < 0.5f)
         {
-                Debug.Log("down swipe");
                 pos = 2;
             }
             //swipe left
             if (currentSwipe.x < 0 && currentSwipe.y > -0.5f && currentSwipe.y < 0.5f)
         {
-                Debug.Log("left swipe");
                 pos = 3;
             }
             //swipe right
             if (currentSwipe.x > 0 && currentSwipe.y > -0.5f && currentSwipe.y < 0.5f)
         {
-                Debug.Log("right swipe");
                 pos = 4;
             }
         }

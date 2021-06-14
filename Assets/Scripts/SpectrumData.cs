@@ -10,12 +10,13 @@ public class SpectrumData : MonoBehaviour
     public  float[] Test = new float[8];
     public AudioSource _audioSource;
     public  AudioSource preload;
-    public static Stack<float> PreAudioSpec = new Stack <float>();
-    public static Stack AudioSpec = new Stack();
+    public static Stack<float> PreAudioDrum = new Stack <float>();
+    public static Stack<float> PreAudioBass = new Stack<float>();
 
     private void Start()
     {
-        PreAudioSpec.Push(0);
+        PreAudioDrum.Push(0);
+        PreAudioBass.Push(0);
     }
     private void Update()
     {
@@ -92,9 +93,14 @@ public class SpectrumData : MonoBehaviour
 
     public static void loadStack()
     {
+        float frequenciaBass;
+        float frequenciaDrum;
 
-            float frequencia = _frequBandPreLoad[6];
-            PreAudioSpec.Push(frequencia);
+             frequenciaDrum = _frequBandPreLoad[6];
+            PreAudioDrum.Push(frequenciaDrum);
+            frequenciaBass = _frequBandPreLoad[1];
+            PreAudioBass.Push(frequenciaBass);
+
     }
 
 }

@@ -17,10 +17,6 @@ public class BPM : MonoBehaviour
             Bpm = AudioManager.Bpm;
             beatsPerSecond = Bpm / 60;
             secondsPerBeat = 1 / beatsPerSecond;
-            velocityY = 5 / secondsPerBeat;
-            velocityX = 3 / secondsPerBeat;
-            Debug.Log(velocityX);
-            Debug.Log(velocityY);
         }
 
 

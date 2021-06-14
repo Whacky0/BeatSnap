@@ -45,14 +45,14 @@ public class BackgroundInstantiate : MonoBehaviour
     void skybox()
     {
 
-     if (SpectrumData._frequBand[6] >= 20 && !cambiocolor)
+     if (SpectrumData._frequBand[6] > 30 && !cambiocolor)
             {
             cambiocolor = true;
             Camera.main.backgroundColor = new Color(0.7f, 0.5f, 0.7f);
             delay = BPM.secondsPerBeat;
 
         }
-        else if(SpectrumData._frequBand[6] >= 20 && cambiocolor)
+        else if(SpectrumData._frequBand[6] > 30 && cambiocolor)
         {
             cambiocolor = false;
             Camera.main.backgroundColor = new Color(0.2f, 0.2f, 0.5f);
