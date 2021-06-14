@@ -49,17 +49,21 @@ public class InstantiateObstacles : MonoBehaviour
         q[2] = Quaternion.Euler(0, 0, 180);
         q[3] = Quaternion.identity;
 
-        posO = rand;
+        
         float freqD = SpectrumData.PreAudioDrum.Pop();
         float freqB = SpectrumData.PreAudioBass.Pop();
             if (SpectrumData._frequBandPreLoad[6] > freqD*5 && freqD!=0)
             {
-            insO = true;    
+            posO = rand;
+            insO = true;
+            Debug.Log(rand);
              Instantiate(obstacles, ins[rand], q[rand]);
              delay = BPM.secondsPerBeat / 2;
             }
             else if (SpectrumData._frequBandPreLoad[1] > 10 && freqB != 0)
             {
+            posO = rand;
+            Debug.Log(rand);
             insO = true;
             Instantiate(obstacles, ins[rand], q[rand]);
                 delay = BPM.secondsPerBeat;
@@ -78,19 +82,19 @@ public class InstantiateObstacles : MonoBehaviour
         {
             if (posBeats.transform.position.y >= 0 && posBeats.transform.position.x==0)
             {
-                posBeats.transform.position = new Vector3(posBeats.transform.position.x, posBeats.transform.position.y - 0.1f/2, posBeats.transform.position.z);
+                posBeats.transform.position = new Vector3(posBeats.transform.position.x, posBeats.transform.position.y - 0.1f, posBeats.transform.position.z);
             }
             if (posBeats.transform.position.x >= 0 && posBeats.transform.position.y == 0)
             {
-                posBeats.transform.position = new Vector3(posBeats.transform.position.x - 0.1f/4, posBeats.transform.position.y, posBeats.transform.position.z);
+                posBeats.transform.position = new Vector3(posBeats.transform.position.x - 0.1f/2, posBeats.transform.position.y, posBeats.transform.position.z);
             }
             if (posBeats.transform.position.x <= 0 && posBeats.transform.position.y == 0)
             {
-                posBeats.transform.position = new Vector3(posBeats.transform.position.x+0.1f/4, posBeats.transform.position.y, posBeats.transform.position.z);
+                posBeats.transform.position = new Vector3(posBeats.transform.position.x+0.1f/2, posBeats.transform.position.y, posBeats.transform.position.z);
             }
             if (posBeats.transform.position.y <=0 && posBeats.transform.position.x == 0)
             {
-                posBeats.transform.position = new Vector3(posBeats.transform.position.x, posBeats.transform.position.y + 0.1f/2, posBeats.transform.position.z);
+                posBeats.transform.position = new Vector3(posBeats.transform.position.x, posBeats.transform.position.y + 0.1f, posBeats.transform.position.z);
             }
         }
     }

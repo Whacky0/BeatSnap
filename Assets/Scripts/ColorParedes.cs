@@ -17,36 +17,43 @@ public class ColorParedes : MonoBehaviour
         var wallL = GameObject.Find("WallL"); 
         var wallR = GameObject.Find("WallR");
 
-        if (InstantiateObstacles.posO==0 && InstantiateObstacles.insO)
+        if (InstantiateObstacles.posO==3 && InstantiateObstacles.insO)
         {
             var color = wallU.GetComponent<SpriteRenderer>();
             Color hideColor= new Color();
-            hideColor.a = 0.5f;
+            hideColor.a = 1;
+            hideColor.r = 0.5f;
             color.color = hideColor;
+            InstantiateObstacles.insO = false;
             yield return new WaitForSeconds(BPM.secondsPerBeat / 2);
 
         }
-        if (InstantiateObstacles.posO == 1 && InstantiateObstacles.insO)
+        if (InstantiateObstacles.posO == 2 && InstantiateObstacles.insO)
         {
             var color = wallD.GetComponent<SpriteRenderer>();
             Color hideColor = new Color();
-            hideColor.a = 0.5f;
+            hideColor.a = 1;
+            hideColor.r = 0.5f;
             color.color = hideColor;
+            InstantiateObstacles.insO = false;
             yield return new WaitForSeconds(BPM.secondsPerBeat / 2);
         }
-        if (InstantiateObstacles.posO == 2 && InstantiateObstacles.insO)
+        if (InstantiateObstacles.posO == 1 && InstantiateObstacles.insO)
         {
             var color = wallL.GetComponent<SpriteRenderer>();
             Color hideColor = new Color();
-            hideColor.a = 0.5f;
+            hideColor.a = 1f;
+            hideColor.r = 0.5f;
             color.color = hideColor;
+            InstantiateObstacles.insO = false;
             yield return new WaitForSeconds(BPM.secondsPerBeat / 2);
         }
-        if (InstantiateObstacles.posO == 3 && InstantiateObstacles.insO)
+        if (InstantiateObstacles.posO == 0 && InstantiateObstacles.insO)
         {
             var color = wallR.GetComponent<SpriteRenderer>();
             Color hideColor = new Color();
-            hideColor.a = 0.5f;
+            hideColor.a = 1;
+            hideColor.r = 0.5f;
             color.color = hideColor;
             InstantiateObstacles.insO = false;
             yield return new WaitForSeconds(BPM.secondsPerBeat / 2);
