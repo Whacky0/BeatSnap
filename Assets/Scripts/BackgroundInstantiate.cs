@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class BackgroundInstantiate : MonoBehaviour
 {
-    public GameObject street;
-    bool cambiocolor = false;
+    public GameObject player;
+    public static bool  cambiocolor = false;
     public AudioSource audioSourceGame;
     float delay = 0;
     /*
@@ -23,7 +23,11 @@ public class BackgroundInstantiate : MonoBehaviour
         
     }
     */
-
+    private void Awake()
+    {
+        Application.targetFrameRate = 60;
+        Camera.main.backgroundColor = new Color(0.2f, 0.2f, 0.5f);
+    }
     void Update()
     {
         if (delay <=0) {
@@ -44,15 +48,14 @@ public class BackgroundInstantiate : MonoBehaviour
      if (SpectrumData._frequBand[6] >= 20 && !cambiocolor)
             {
             cambiocolor = true;
-            RenderSettings.skybox.SetColor("_Tint", new Color(0.7f, 0.5f, 0.5f));
-
+            Camera.main.backgroundColor = new Color(0.7f, 0.5f, 0.7f);
             delay = BPM.secondsPerBeat;
 
         }
         else if(SpectrumData._frequBand[6] >= 20 && cambiocolor)
         {
             cambiocolor = false;
-            RenderSettings.skybox.SetColor("_Tint", new Color(0.2f, 0.5f, 0.5f));
+            Camera.main.backgroundColor = new Color(0.2f, 0.2f, 0.5f);
             delay = BPM.secondsPerBeat;
 
 
@@ -61,5 +64,5 @@ public class BackgroundInstantiate : MonoBehaviour
 
     }
 
-
+    
 }

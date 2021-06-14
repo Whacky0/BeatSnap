@@ -93,7 +93,7 @@ public class SpectrumData : MonoBehaviour
     public static void loadStack()
     {
 
-            float frequencia = _frequBandPreLoad[5];
+            float frequencia = _frequBandPreLoad[6];
             PreAudioSpec.Push(frequencia);
     }
 
